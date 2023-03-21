@@ -1,10 +1,10 @@
 const fs = require('fs');
+const path = require('path');
 
 // Constants
 const OUT_DIR = './dist';
 
 const links = {
-  index: 'https://wiggin.dev',
   wiggindev: 'https://github.com/wiggindev/-wiggindev/tree/main/packages',
   enumer8: 'https://www.npmjs.com/package/enumer8',
   vapeaware: 'https://github.com/wiggindev/VapeAware',
@@ -22,7 +22,11 @@ if (!fs.existsSync(OUT_DIR)) {
 // Build
 const template = fs.readFileSync('./template.html', 'utf8');
 
-Object.entries(links).forEach(([path, url]) => {
+const indexContent = template.replace('{{url}}', 'https://wiggin.dev');
+fs.writeFileSync(path.join(OUT_DIR, 'index.html'), indexContent);
+
+Object.entries(links).forEach(([key, url]) => {
+  fs.mkdirSync(path.join(OUT_DIR, key));
   const fileContent = template.replace('{{url}}', url);
-  fs.writeFileSync(`${OUT_DIR}/${path}.html`, fileContent);
+  fs.writeFileSync(path.join(OUT_DIR, key, 'index.html'), fileContent);
 });
