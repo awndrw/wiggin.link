@@ -2,9 +2,18 @@
   "name": "wiggin.link",
   "version": "0.0.0",
   "scripts": {
-    "build": "rm -rf dist && node ./build.js"
+    "dev": "yarn clean && NODE_ENV=development yarn build && http-server dist -p 3001",
+    "build": "yarn clean && ts-node build.ts",
+    "clean": "rm -rf dist"
+  },
+  "dependencies": {
+    "links": "*",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.0.2"
   },
   "devDependencies": {
-    "eslint-config-wiggin": "*"
+    "@types/node": "^18.15.5",
+    "eslint-config-wiggin": "*",
+    "http-server": "^14.1.1"
   }
 }
