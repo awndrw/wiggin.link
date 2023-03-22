@@ -1,7 +1,10 @@
 {
   "name": "wiggin.link",
+  "version": "0.0.0",
   "scripts": {
     "build": "rm -rf dist && node ./build.js"
   },
-  "packageManager": "yarn@3.4.1"
+  "devDependencies": {
+    "eslint-config-wiggin": "*"
+  }
 }
