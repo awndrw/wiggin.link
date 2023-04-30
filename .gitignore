@@ -8,6 +8,9 @@
 !.yarn/versions
 node_modules
 
+# vercel
+.vercel
+
 # misc
 .DS_Store
 *.pem
@@ -15,4 +18,4 @@ node_modules
 .idea
 
 # build
-dist
+vercel.json
