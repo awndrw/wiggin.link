@@ -16,6 +16,3 @@ node_modules
 *.pem
 .vscode
 .idea
-
-# build
-vercel.json
